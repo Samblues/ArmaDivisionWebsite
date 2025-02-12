@@ -1,13 +1,11 @@
-import React, { useState, MouseEvent, useEffect } from 'react';
+import { useState, MouseEvent, useEffect } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
-import { COLORS } from '../constants/theme';
 import AmBackground from '../assets/Am_background.jpg';
 import ReforgerLogo from '../assets/Reforger_V4.png';
 import ArmaReforgerLogo from '../assets/armareforger.png';
 import Arma3Logo from '../assets/arma3.png';
 import ReforgerBackground from '../assets/ArmaReforgerbackground.jpg';
 import Arma3Background from '../assets/Arma3background.jpg';
-import TAWNameLogo from '../assets/TawNameLogo.png';
 import TAWSEALLogo from '../assets/TawSealLogo.png';
 import DiscordLogo from '../assets/Discord-Logo.png';
 import { convertUTCToLocal } from '../utils/timeUtils';
@@ -59,12 +57,6 @@ export const ParallaxLanding = () => {
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     mouseX.set(e.clientX);
     setHoveredSide(e.clientX < window.innerWidth / 2 ? 'left' : 'right');
-  };
-
-  const handleTouchStart = (side: 'left' | 'right') => {
-    if (isMobile) {
-      setHoveredSide(side);
-    }
   };
 
   const DrillInstructorCard = ({ name }: { name: string }) => (
