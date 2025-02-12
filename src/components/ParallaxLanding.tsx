@@ -193,16 +193,16 @@ export const ParallaxLanding = () => {
 
         {/* Bottom Discord Logo */}
         {!activeTab && (
-          <div className="mt-auto mb-2 flex flex-col items-center gap-2">
+          <div className="mt-auto mb-4 flex flex-col items-center gap-3">
             <img 
               src={DiscordLogo}
               alt="Discord"
-              className="h-[8vh] object-contain"
+              className="h-[7vh] object-contain"
             />
             <img 
               src={TAWSEALLogo}
               alt="TAW Seal"
-              className="h-[10vh] object-contain"
+              className="h-[8vh] object-contain"
             />
           </div>
         )}
