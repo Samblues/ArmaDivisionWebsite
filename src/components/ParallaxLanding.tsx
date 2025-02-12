@@ -81,7 +81,7 @@ export const ParallaxLanding = () => {
   const EventCard = ({ type, day, time, name }: { type: string; day: string; time: string; name: string }) => {
     const localTime = convertUTCToLocal(time.split('-')[0].trim(), day);
     return (
-      <div className="bg-black bg-opacity-20 backdrop-blur-sm rounded-lg p-3 shadow-md">
+      <div className="bg-black bg-opacity-40 backdrop-blur-sm rounded-lg p-3 shadow-md">
         <div className="flex items-center gap-2">
           <span className={`text-sm font-bold ${type === '[PVE]' ? 'text-tactical-green' : 'text-crimson-red'}`}>
             {type}
@@ -95,7 +95,7 @@ export const ParallaxLanding = () => {
   };
 
   const RequirementCard = ({ title }: { title: string }) => (
-    <div className="bg-black bg-opacity-30 backdrop-blur-sm rounded-lg p-4 hover:bg-opacity-40 transition-all duration-300 text-center">
+    <div className="bg-black bg-opacity-50 backdrop-blur-sm rounded-lg p-4 hover:bg-opacity-60 transition-all duration-300 text-center">
       <h4 className="text-pure-white font-primary text-lg mb-2">{title}</h4>
     </div>
   );
@@ -109,7 +109,7 @@ export const ParallaxLanding = () => {
             className="absolute inset-0 bg-cover bg-center min-h-screen"
             style={{ backgroundImage: `url(${AmBackground})` }}
           >
-            <div className="absolute inset-0 bg-black bg-opacity-60 min-h-screen" />
+            <div className="absolute inset-0 bg-black bg-opacity-50 min-h-screen" />
           </div>
         </div>
       )}
@@ -148,13 +148,13 @@ export const ParallaxLanding = () => {
             className={`flex-1 flex flex-col items-center justify-center gap-4 p-4 rounded font-primary text-base uppercase transition-all duration-300 relative overflow-hidden ${
               activeTab === 'left' 
                 ? 'bg-tactical-green text-pure-white' 
-                : 'bg-black bg-opacity-50 text-pure-white hover:bg-opacity-70'
+                : 'bg-black bg-opacity-40 text-pure-white hover:bg-opacity-50'
             }`}
             onClick={() => setActiveTab(activeTab === 'left' ? null : 'left')}
           >
             {/* Background Image */}
             <div 
-              className="absolute inset-0 bg-cover bg-center opacity-30"
+              className="absolute inset-0 bg-cover bg-center opacity-50"
               style={{ backgroundImage: `url(${ReforgerBackground})` }}
             />
             {/* Content */}
@@ -171,13 +171,13 @@ export const ParallaxLanding = () => {
             className={`flex-1 flex flex-col items-center justify-center gap-4 p-4 rounded font-primary text-base uppercase transition-all duration-300 relative overflow-hidden ${
               activeTab === 'right' 
                 ? 'bg-tactical-green text-pure-white' 
-                : 'bg-black bg-opacity-50 text-pure-white hover:bg-opacity-70'
+                : 'bg-black bg-opacity-40 text-pure-white hover:bg-opacity-50'
             }`}
             onClick={() => setActiveTab(activeTab === 'right' ? null : 'right')}
           >
             {/* Background Image */}
             <div 
-              className="absolute inset-0 bg-cover bg-center opacity-30"
+              className="absolute inset-0 bg-cover bg-center opacity-50"
               style={{ backgroundImage: `url(${Arma3Background})` }}
             />
             {/* Content */}
@@ -224,7 +224,7 @@ export const ParallaxLanding = () => {
             backgroundImage: `url(${activeTab === 'left' ? ReforgerBackground : Arma3Background})`
           }}
         >
-          <div className="absolute inset-0 bg-black bg-opacity-60" />
+          <div className="absolute inset-0 bg-black bg-opacity-75" />
           <div className="relative z-10 h-screen p-4 flex flex-col justify-between">
             {/* Top Section */}
             <div className="flex flex-col items-center gap-4 pt-8">
