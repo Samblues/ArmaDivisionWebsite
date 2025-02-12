@@ -60,25 +60,25 @@ export const ParallaxLanding = () => {
   };
 
   const DrillInstructorCard = ({ name }: { name: string }) => (
-    <div className="bg-black bg-opacity-30 backdrop-blur-sm rounded-lg p-4 shadow-lg hover:bg-opacity-40 transition-all duration-300 flex flex-col items-center gap-2">
+    <div className="bg-black bg-opacity-30 backdrop-blur-sm rounded-lg p-2 shadow-lg hover:bg-opacity-40 transition-all duration-300 flex flex-col items-center gap-1">
       <img 
         src={TAWSEALLogo}
         alt={name}
-        className="h-16 w-16 object-contain"
+        className="h-12 w-12 object-contain"
       />
-      <span className="text-pure-white font-primary text-sm">{name}</span>
+      <span className="text-pure-white font-primary text-xs">{name}</span>
     </div>
   );
 
   const EventCard = ({ type, day, time, name }: { type: string; day: string; time: string; name: string }) => {
     const localTime = convertUTCToLocal(time.split('-')[0].trim(), day);
     return (
-      <div className="bg-black bg-opacity-40 backdrop-blur-sm rounded-lg p-3 shadow-md">
+      <div className="bg-black bg-opacity-40 backdrop-blur-sm rounded-lg p-2 shadow-md">
         <div className="flex items-center gap-2">
-          <span className={`text-sm font-bold ${type === '[PVE]' ? 'text-tactical-green' : 'text-crimson-red'}`}>
+          <span className={`text-xs font-bold ${type === '[PVE]' ? 'text-tactical-green' : 'text-crimson-red'}`}>
             {type}
           </span>
-          <span className="text-pure-white font-secondary">
+          <span className="text-pure-white font-secondary text-sm">
             {`${day}s ${localTime} - ${name}`}
           </span>
         </div>
@@ -172,7 +172,7 @@ export const ParallaxLanding = () => {
               className="absolute inset-0 bg-cover bg-center opacity-50"
               style={{ backgroundImage: `url(${Arma3Background})` }}
             />
-            {/* Content */}
+            {/* Content */
             <div className="relative z-10 flex flex-col items-center gap-4">
               <span className="text-lg">Arma 3</span>
               <img 
@@ -217,32 +217,32 @@ export const ParallaxLanding = () => {
           }}
         >
           <div className="absolute inset-0 bg-black bg-opacity-75" />
-          <div className="relative z-10 h-screen p-4 flex flex-col justify-between">
-            {/* Top Section */}
-            <div className="flex flex-col items-center gap-4 pt-8">
+          <div className="relative z-10 h-screen p-4 flex flex-col">
+            {/* Top Section - Reduced padding and gaps */}
+            <div className="flex flex-col items-center gap-2 pt-4">
               <img 
                 src={activeTab === 'left' ? ArmaReforgerLogo : Arma3Logo}
                 alt={activeTab === 'left' ? "Arma Reforger" : "Arma 3"}
-                className="h-14 w-[250px] object-contain"
+                className="h-12 w-[200px] object-contain"
               />
-              <h2 className="text-2xl font-primary uppercase text-pure-white text-center">
+              <h2 className="text-xl font-primary uppercase text-pure-white text-center">
                 {activeTab === 'left' ? "1st Battalion [EU] & 4th Battalion [NA]" : "2nd Battalion [EU] & 3rd Battalion [NA]"}
               </h2>
             </div>
 
-            {/* Middle Section */}
-            <div className="flex flex-col gap-6 my-8">
-              {/* Drill Instructors - Horizontal Scroll */}
+            {/* Middle Section - Adjusted spacing */}
+            <div className="flex flex-col gap-4 my-4">
+              {/* Drill Instructors - More compact */}
               <div className="w-full overflow-x-auto">
-                <div className="flex gap-3 min-w-min px-1">
+                <div className="flex gap-2 min-w-min px-1">
                   <DrillInstructorCard name="Drill Instructor 1" />
                   <DrillInstructorCard name="Drill Instructor 2" />
                   <DrillInstructorCard name="Drill Instructor 3" />
                 </div>
               </div>
 
-              {/* Events List */}
-              <div className="w-full space-y-3">
+              {/* Events List - More compact */}
+              <div className="w-full space-y-2">
                 {activeTab === 'left' ? (
                   <>
                     <EventCard type="[PVE]" day="Tuesday" time="19:30" name="[TAW] Public Casual Milsim" />
@@ -259,20 +259,12 @@ export const ParallaxLanding = () => {
               </div>
             </div>
 
-            {/* Bottom Section */}
-            <div className="w-full grid grid-cols-3 gap-3 mb-4">
+            {/* Bottom Section - Reduced margin */}
+            <div className="w-full grid grid-cols-3 gap-2 mb-2">
               <RequirementCard title="Discord" />
               <RequirementCard title="Rules" />
               <RequirementCard title="Modpack" />
             </div>
-
-            {/* Close button */}
-            <button
-              className="absolute top-4 right-4 bg-deep-black rounded-full p-2"
-              onClick={() => setActiveTab(null)}
-            >
-              <span className="text-pure-white text-xl">×</span>
-            </button>
           </div>
         </div>
       )}
