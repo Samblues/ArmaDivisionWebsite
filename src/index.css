@@ -2,4 +2,15 @@
 
 @tailwind base;
 @tailwind components;
-@tailwind utilities; 
+@tailwind utilities;
+
+@media (max-width: 768px) {
+  .parallax-content {
+    scroll-snap-type: y mandatory;
+  }
+
+  .parallax-section {
+    scroll-snap-align: start;
+    min-height: 100vh;
+  }
+} 
