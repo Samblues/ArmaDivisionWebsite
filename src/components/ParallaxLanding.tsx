@@ -172,7 +172,7 @@ export const ParallaxLanding = () => {
               className="absolute inset-0 bg-cover bg-center opacity-50"
               style={{ backgroundImage: `url(${Arma3Background})` }}
             />
-            {/* Content */
+            {/* Content */ }
             <div className="relative z-10 flex flex-col items-center gap-4">
               <span className="text-lg">Arma 3</span>
               <img 
