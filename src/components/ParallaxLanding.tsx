@@ -16,6 +16,7 @@ export const ParallaxLanding = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 640);
   const mouseX = useMotionValue(0);
   const [hoveredSide, setHoveredSide] = useState<'left' | 'right' | null>(null);
+  const [isCenterHovered, setIsCenterHovered] = useState(false);
   
   // Desktop transforms
   const leftWidth = useTransform(
@@ -313,6 +314,8 @@ export const ParallaxLanding = () => {
               transform: 'none',
               x: centerOffset,
             }}
+            onMouseEnter={() => setIsCenterHovered(true)}
+            onMouseLeave={() => setIsCenterHovered(false)}
           >
             {/* Top content */}
             <div className="flex flex-col items-center gap-6">
@@ -367,6 +370,7 @@ export const ParallaxLanding = () => {
             
             {/* Content */}
             <div className={`relative z-10 text-white transition-opacity duration-300 flex flex-col items-center gap-4 md:gap-8 w-full px-4 md:px-8 ${
+              isCenterHovered ? 'opacity-50' : 
               hoveredSide === 'left' ? 'opacity-100' : 'opacity-50'
             }`}>
               <img 
@@ -423,6 +427,7 @@ export const ParallaxLanding = () => {
 
             {/* Content */}
             <div className={`relative z-10 text-white transition-opacity duration-300 flex flex-col items-center gap-4 md:gap-8 w-full px-4 md:px-8 ${
+              isCenterHovered ? 'opacity-50' : 
               hoveredSide === 'right' ? 'opacity-100' : 'opacity-50'
             }`}>
               <img 
