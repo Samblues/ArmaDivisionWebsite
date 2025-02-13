@@ -257,7 +257,7 @@ export const ParallaxLanding = () => {
               </div>
 
               {/* Events List */}
-              <div className="w-full space-y-3">
+              <div className="w-[280px] mx-auto space-y-3">
                 <EventCard type="[PVE]" day="Tuesday" time="19:30" name="[TAW] Public Casual Milsim" />
                 <EventCard type="[PVP]" day="Thursday" time="19:30" name="[TAW] Sieze and Secure" />
                 <EventCard type="[PVP]" day="Sunday" time="19:30" name="[TAW] Sieze and Secure" />
@@ -385,7 +385,7 @@ export const ParallaxLanding = () => {
               </div>
 
               {/* Events */}
-              <div className="w-full space-y-2 md:space-y-4">
+              <div className="w-[300px] mx-auto space-y-2 md:space-y-4">
                 <EventCard type="[PVE]" day="Tuesday" time="19:30" name="[TAW] Public Casual Milsim" />
                 <EventCard type="[PVP]" day="Thursday" time="19:30" name="[TAW] Sieze and Secure" />
                 <EventCard type="[PVP]" day="Sunday" time="19:30" name="[TAW] Sieze and Secure" />
@@ -441,10 +441,10 @@ export const ParallaxLanding = () => {
               </div>
 
               {/* Events */}
-              <div className="w-full space-y-2 md:space-y-4">
-                <EventCard type="[PVE]" day="Thursday" time="19:30" name="[TAW] Thursday Milsim Event" />
-                <EventCard type="[PVE]" day="Sunday" time="19:30" name="[TAW] Sunday Milsim Event" />
-                <EventCard type="[PVP]" day="Saturday" time="19:30" name="[TAW] Optional Event" />
+              <div className="w-[300px] mx-auto space-y-2 md:space-y-4">
+                <EventCard type="[PVE]" day="Tuesday" time="19:30" name="[TAW] Public Casual Milsim" />
+                <EventCard type="[PVP]" day="Thursday" time="19:30" name="[TAW] Sieze and Secure" />
+                <EventCard type="[PVP]" day="Sunday" time="19:30" name="[TAW] Sieze and Secure" />
               </div>
 
               {/* Requirements */}
