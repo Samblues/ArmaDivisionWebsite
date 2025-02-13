@@ -240,6 +240,9 @@ export const ParallaxLanding = () => {
               <h2 className="text-lg font-primary uppercase text-pure-white text-center">
                 {activeTab === 'left' ? "1st Battalion [EU] & 4th Battalion [NA]" : "2nd Battalion [EU] & 3rd Battalion [NA]"}
               </h2>
+              <h3 className="text-base font-primary uppercase text-pure-white text-center">
+                {activeTab === 'left' ? "Arma Reforger - Key Contacts" : "Arma III - Key Contacts"}
+              </h3>
             </div>
 
             {/* Middle Section - Better spacing */}
@@ -386,7 +389,7 @@ export const ParallaxLanding = () => {
                 className="h-24 w-[300px] object-contain mb-4"
               />
               <h2 className="text-4xl font-primary uppercase mb-2 text-pure-white">1st Battalion [EU] & 4th Battalion [NA]</h2>
-              <h3 className="text-2xl font-primary uppercase">Arma Reforger</h3>
+              <h3 className="text-2xl font-primary uppercase">Arma Reforger - Key Contacts</h3>
 
               {/* Drill Instructors */}
               <div className="flex gap-4 overflow-x-auto pb-2">
@@ -434,7 +437,7 @@ export const ParallaxLanding = () => {
                 className="h-24 w-[300px] object-contain mb-4"
               />
               <h2 className="text-4xl font-primary uppercase mb-2 text-pure-white">2nd Battalion [EU] & 3rd Battalion [NA]</h2>
-              <h3 className="text-2xl font-primary uppercase">Arma III</h3>
+              <h3 className="text-2xl font-primary uppercase">Arma III - Key Contacts</h3>
 
               {/* Drill Instructors */}
               <div className="flex gap-4 overflow-x-auto pb-2">
