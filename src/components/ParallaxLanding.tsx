@@ -93,7 +93,7 @@ export const ParallaxLanding = () => {
   );
 
   const MobileContent = () => (
-    <div className="min-h-screen flex flex-col overflow-y-auto bg-deep-black relative">
+    <div className="h-screen flex flex-col overflow-hidden bg-deep-black relative">
       {/* Background when no tab is selected */}
       {!activeTab && (
         <div className="absolute inset-0 z-0">
@@ -106,94 +106,98 @@ export const ParallaxLanding = () => {
         </div>
       )}
 
-      {/* Central Content - Adjust spacing */}
-      <div className="flex-1 flex flex-col items-center justify-start gap-3 p-3 relative z-10">
-        <img 
-          src={ReforgerLogo}
-          alt="The Art of Warfare – ARMA Division"
-          className="h-[12vh] object-contain mt-4"
-        />
-        <h1 className="text-xl md:text-3xl font-primary font-bold text-pure-white uppercase tracking-wide text-shadow-glow whitespace-nowrap scale-[0.85]">
-          The Art of Warfare - ARMA Division
-        </h1>
-        
-        {/* YouTube Video */}
-        <div className="w-full max-w-[220px] bg-deep-black rounded-lg shadow-2xl overflow-hidden">
-          <div className="aspect-video">
-            <iframe
-              className="w-full h-full"
-              src="https://www.youtube.com/embed/your-video-id"
-              title="TAW ARMA Division"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+      {/* Central Content - Fixed height */}
+      <div className="h-full flex flex-col items-center justify-between p-3 relative z-10">
+        {/* Top Section */}
+        <div className="flex flex-col items-center gap-2">
+          <img 
+            src={ReforgerLogo}
+            alt="The Art of Warfare – ARMA Division"
+            className="h-[10vh] object-contain"
+          />
+          <h1 className="text-lg font-primary font-bold text-pure-white uppercase tracking-wide text-shadow-glow whitespace-nowrap scale-[0.85]">
+            The Art of Warfare - ARMA Division
+          </h1>
+        </div>
+
+        {/* Middle Section */}
+        <div className="flex flex-col items-center gap-3">
+          {/* YouTube and Game Selection */}
+          <div className="w-full max-w-[220px] bg-deep-black rounded-lg shadow-2xl overflow-hidden mb-2">
+            <div className="aspect-video">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/your-video-id"
+                title="TAW ARMA Division"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+          
+          <h2 className="text-xl font-primary text-pure-white uppercase text-shadow-glow mb-2">
+            Choose Game
+          </h2>
+          <div className="flex w-full gap-3 px-2 h-[18vh]">
+            <button
+              className={`flex-1 flex flex-col items-center justify-center gap-4 p-4 rounded font-primary text-base uppercase transition-all duration-300 relative overflow-hidden ${
+                activeTab === 'left' 
+                  ? 'bg-tactical-green text-pure-white' 
+                  : 'bg-black bg-opacity-40 text-pure-white hover:bg-opacity-50'
+              }`}
+              onClick={() => setActiveTab(activeTab === 'left' ? null : 'left')}
+            >
+              {/* Background Image */}
+              <div 
+                className="absolute inset-0 bg-cover bg-center opacity-50"
+                style={{ backgroundImage: `url(${ReforgerBackground})` }}
+              />
+              {/* Content */}
+              <div className="relative z-10 flex flex-col items-center gap-4">
+                <span className="text-lg">Reforger</span>
+                <img 
+                  src={ArmaReforgerLogo}
+                  alt="Arma Reforger"
+                  className="h-12 object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] transition-all duration-300"
+                />
+              </div>
+            </button>
+            <button
+              className={`flex-1 flex flex-col items-center justify-center gap-4 p-4 rounded font-primary text-base uppercase transition-all duration-300 relative overflow-hidden ${
+                activeTab === 'right' 
+                  ? 'bg-tactical-green text-pure-white' 
+                  : 'bg-black bg-opacity-40 text-pure-white hover:bg-opacity-50'
+              }`}
+              onClick={() => setActiveTab(activeTab === 'right' ? null : 'right')}
+            >
+              {/* Background Image */}
+              <div 
+                className="absolute inset-0 bg-cover bg-center opacity-50"
+                style={{ backgroundImage: `url(${Arma3Background})` }}
+              />
+              {/* Content */ }
+              <div className="relative z-10 flex flex-col items-center gap-4">
+                <span className="text-lg">Arma 3</span>
+                <img 
+                  src={Arma3Logo}
+                  alt="Arma 3"
+                  className="h-12 object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] transition-all duration-300"
+                />
+              </div>
+            </button>
+          </div>
+          
+          <div className="text-center animate-pulse mt-2">
+            <p className="text-pure-white font-primary text-sm tracking-wide">
+              Welcome, please select each game for more information
+            </p>
           </div>
         </div>
 
-        {/* Side Selection Buttons - Adjust height */}
-        <h2 className="text-xl font-primary text-pure-white uppercase text-shadow-glow mb-2">
-          Choose Game
-        </h2>
-        <div className="flex w-full gap-3 px-2 h-[20vh]">
-          <button
-            className={`flex-1 flex flex-col items-center justify-center gap-4 p-4 rounded font-primary text-base uppercase transition-all duration-300 relative overflow-hidden ${
-              activeTab === 'left' 
-                ? 'bg-tactical-green text-pure-white' 
-                : 'bg-black bg-opacity-40 text-pure-white hover:bg-opacity-50'
-            }`}
-            onClick={() => setActiveTab(activeTab === 'left' ? null : 'left')}
-          >
-            {/* Background Image */}
-            <div 
-              className="absolute inset-0 bg-cover bg-center opacity-50"
-              style={{ backgroundImage: `url(${ReforgerBackground})` }}
-            />
-            {/* Content */}
-            <div className="relative z-10 flex flex-col items-center gap-4">
-              <span className="text-lg">Reforger</span>
-              <img 
-                src={ArmaReforgerLogo}
-                alt="Arma Reforger"
-                className="h-12 object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] transition-all duration-300"
-              />
-            </div>
-          </button>
-          <button
-            className={`flex-1 flex flex-col items-center justify-center gap-4 p-4 rounded font-primary text-base uppercase transition-all duration-300 relative overflow-hidden ${
-              activeTab === 'right' 
-                ? 'bg-tactical-green text-pure-white' 
-                : 'bg-black bg-opacity-40 text-pure-white hover:bg-opacity-50'
-            }`}
-            onClick={() => setActiveTab(activeTab === 'right' ? null : 'right')}
-          >
-            {/* Background Image */}
-            <div 
-              className="absolute inset-0 bg-cover bg-center opacity-50"
-              style={{ backgroundImage: `url(${Arma3Background})` }}
-            />
-            {/* Content */ }
-            <div className="relative z-10 flex flex-col items-center gap-4">
-              <span className="text-lg">Arma 3</span>
-              <img 
-                src={Arma3Logo}
-                alt="Arma 3"
-                className="h-12 object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] transition-all duration-300"
-              />
-            </div>
-          </button>
-        </div>
-
-        {/* Welcome Text - Animated */}
-        <div className="text-center animate-pulse">
-          <p className="text-pure-white font-primary text-sm tracking-wide">
-            Welcome, please select each game for more information
-          </p>
-        </div>
-
-        {/* Bottom Discord Logo - Adjust spacing */}
+        {/* Bottom Section */}
         {!activeTab && (
-          <div className="mt-4 mb-6 flex flex-col items-center gap-3">
+          <div className="flex flex-col items-center gap-3">
             <img 
               src={DiscordLogo}
               alt="Discord"
@@ -202,7 +206,7 @@ export const ParallaxLanding = () => {
             <img 
               src={TAWSEALLogo}
               alt="TAW Seal"
-              className="h-[7vh] object-contain"
+              className="h-[7vh] object-contain mb-2"
             />
           </div>
         )}
