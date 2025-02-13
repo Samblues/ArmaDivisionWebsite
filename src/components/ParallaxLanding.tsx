@@ -213,7 +213,8 @@ export const ParallaxLanding = () => {
             <img 
               src={DiscordLogo}
               alt="Discord"
-              className="h-[6vh] object-contain mb-2"
+              className="h-[6vh] object-contain mb-2 cursor-pointer"
+              onClick={() => window.open("https://discord.gg/vAZ2QgwgJw", "_blank", "noopener,noreferrer")}
             />
           </div>
         )}
@@ -289,7 +290,8 @@ export const ParallaxLanding = () => {
             <img 
               src={DiscordLogo}
               alt="Discord"
-              className="h-[6vh] object-contain filter drop-shadow-[0_0_8px_rgba(12,64,62,0.6)] hover:drop-shadow-[0_0_12px_rgba(12,64,62,0.8)] animate-[pulse-glow_3s_ease-in-out_infinite]"
+              className="h-[6vh] object-contain filter drop-shadow-[0_0_8px_rgba(12,64,62,0.6)] hover:drop-shadow-[0_0_12px_rgba(12,64,62,0.8)] animate-[pulse-glow_3s_ease-in-out_infinite] cursor-pointer"
+              onClick={() => window.open("https://discord.gg/vAZ2QgwgJw", "_blank", "noopener,noreferrer")}
             />
           </div>
           <div className="absolute top-4 right-4 z-40">
