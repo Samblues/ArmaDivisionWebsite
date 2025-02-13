@@ -60,25 +60,27 @@ export const ParallaxLanding = () => {
   };
 
   const DrillInstructorCard = ({ name }: { name: string }) => (
-    <div className="bg-black bg-opacity-30 backdrop-blur-sm rounded-lg p-2 shadow-lg hover:bg-opacity-40 transition-all duration-300 flex flex-col items-center gap-1">
+    <div className={`bg-black bg-opacity-30 backdrop-blur-sm rounded-lg shadow-lg hover:bg-opacity-40 transition-all duration-300 flex flex-col items-center gap-2 ${
+      isMobile ? 'p-2 gap-1' : 'p-4 gap-2'
+    }`}>
       <img 
         src={TAWSEALLogo}
         alt={name}
-        className="h-12 w-12 object-contain"
+        className={isMobile ? "h-12 w-12 object-contain" : "h-16 w-16 object-contain"}
       />
-      <span className="text-pure-white font-primary text-xs">{name}</span>
+      <span className={`text-pure-white font-primary ${isMobile ? 'text-xs' : 'text-sm'}`}>{name}</span>
     </div>
   );
 
   const EventCard = ({ type, day, time, name }: { type: string; day: string; time: string; name: string }) => {
     const localTime = convertUTCToLocal(time.split('-')[0].trim(), day);
     return (
-      <div className="bg-black bg-opacity-40 backdrop-blur-sm rounded-lg p-2 shadow-md">
+      <div className={`bg-black bg-opacity-40 backdrop-blur-sm rounded-lg shadow-md ${isMobile ? 'p-2' : 'p-3'}`}>
         <div className="flex items-center gap-2">
-          <span className={`text-xs font-bold ${type === '[PVE]' ? 'text-tactical-green' : 'text-crimson-red'}`}>
+          <span className={`font-bold ${type === '[PVE]' ? 'text-tactical-green' : 'text-crimson-red'} ${isMobile ? 'text-xs' : 'text-sm'}`}>
             {type}
           </span>
-          <span className="text-pure-white font-secondary text-sm">
+          <span className={`text-pure-white font-secondary ${isMobile ? 'text-sm' : ''}`}>
             {`${day}s ${localTime} - ${name}`}
           </span>
         </div>
@@ -300,7 +302,7 @@ export const ParallaxLanding = () => {
               src={DiscordLogo}
               alt="Discord"
               className="h-[6vh] object-contain filter drop-shadow-[0_0_8px_rgba(12,64,62,0.6)] hover:drop-shadow-[0_0_12px_rgba(12,64,62,0.8)] animate-[pulse-glow_3s_ease-in-out_infinite] cursor-pointer"
-              onClick={() => window.open("https://discord.gg/your-discord-link", "_blank", "noopener,noreferrer")}
+              onClick={() => window.open("https://discord.gg/vAZ2QgwgJw", "_blank", "noopener,noreferrer")}
             />
           </div>
         </>
