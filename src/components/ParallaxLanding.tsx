@@ -93,7 +93,7 @@ export const ParallaxLanding = () => {
   );
 
   const MobileContent = () => (
-    <div className="h-screen flex flex-col overflow-hidden bg-deep-black relative">
+    <div className="min-h-screen flex flex-col overflow-y-auto bg-deep-black relative">
       {/* Background when no tab is selected */}
       {!activeTab && (
         <div className="absolute inset-0 z-0">
@@ -106,12 +106,12 @@ export const ParallaxLanding = () => {
         </div>
       )}
 
-      {/* Central Content - Centered vertically and horizontally */}
-      <div className="flex-1 flex flex-col items-center justify-center gap-4 p-4 relative z-10">
+      {/* Central Content - Adjust spacing */}
+      <div className="flex-1 flex flex-col items-center justify-start gap-3 p-3 relative z-10">
         <img 
           src={ReforgerLogo}
           alt="The Art of Warfare – ARMA Division"
-          className="h-[15vh] object-contain"
+          className="h-[12vh] object-contain mt-4"
         />
         <h1 className="text-xl md:text-3xl font-primary font-bold text-pure-white uppercase tracking-wide text-shadow-glow whitespace-nowrap scale-[0.85]">
           The Art of Warfare - ARMA Division
@@ -131,11 +131,11 @@ export const ParallaxLanding = () => {
           </div>
         </div>
 
-        {/* Side Selection Buttons */}
+        {/* Side Selection Buttons - Adjust height */}
         <h2 className="text-xl font-primary text-pure-white uppercase text-shadow-glow mb-2">
           Choose Game
         </h2>
-        <div className="flex w-full gap-4 px-2 flex-1 max-h-[25vh]">
+        <div className="flex w-full gap-3 px-2 h-[20vh]">
           <button
             className={`flex-1 flex flex-col items-center justify-center gap-4 p-4 rounded font-primary text-base uppercase transition-all duration-300 relative overflow-hidden ${
               activeTab === 'left' 
@@ -191,18 +191,18 @@ export const ParallaxLanding = () => {
           </p>
         </div>
 
-        {/* Bottom Discord Logo */}
+        {/* Bottom Discord Logo - Adjust spacing */}
         {!activeTab && (
-          <div className="mt-auto mb-4 flex flex-col items-center gap-3">
+          <div className="mt-4 mb-6 flex flex-col items-center gap-3">
             <img 
               src={DiscordLogo}
               alt="Discord"
-              className="h-[7vh] object-contain"
+              className="h-[6vh] object-contain"
             />
             <img 
               src={TAWSEALLogo}
               alt="TAW Seal"
-              className="h-[8vh] object-contain"
+              className="h-[7vh] object-contain"
             />
           </div>
         )}
@@ -218,31 +218,31 @@ export const ParallaxLanding = () => {
         >
           <div className="absolute inset-0 bg-black bg-opacity-75" />
           <div className="relative z-10 h-screen p-4 flex flex-col">
-            {/* Top Section - Reduced padding and gaps */}
-            <div className="flex flex-col items-center gap-2 pt-4">
+            {/* Top Section - Adjusted spacing */}
+            <div className="flex flex-col items-center gap-3 pt-2">
               <img 
                 src={activeTab === 'left' ? ArmaReforgerLogo : Arma3Logo}
                 alt={activeTab === 'left' ? "Arma Reforger" : "Arma 3"}
-                className="h-12 w-[200px] object-contain"
+                className="h-10 w-[180px] object-contain"
               />
-              <h2 className="text-xl font-primary uppercase text-pure-white text-center">
+              <h2 className="text-lg font-primary uppercase text-pure-white text-center">
                 {activeTab === 'left' ? "1st Battalion [EU] & 4th Battalion [NA]" : "2nd Battalion [EU] & 3rd Battalion [NA]"}
               </h2>
             </div>
 
-            {/* Middle Section - Adjusted spacing */}
-            <div className="flex flex-col gap-4 my-4">
-              {/* Drill Instructors - More compact */}
+            {/* Middle Section - Better spacing */}
+            <div className="flex flex-col gap-6 mt-6">
+              {/* Drill Instructors */}
               <div className="w-full overflow-x-auto">
-                <div className="flex gap-2 min-w-min px-1">
+                <div className="flex gap-3 min-w-min px-1">
                   <DrillInstructorCard name="Drill Instructor 1" />
                   <DrillInstructorCard name="Drill Instructor 2" />
                   <DrillInstructorCard name="Drill Instructor 3" />
                 </div>
               </div>
 
-              {/* Events List - More compact */}
-              <div className="w-full space-y-2">
+              {/* Events List */}
+              <div className="w-full space-y-3">
                 {activeTab === 'left' ? (
                   <>
                     <EventCard type="[PVE]" day="Tuesday" time="19:30" name="[TAW] Public Casual Milsim" />
@@ -259,12 +259,20 @@ export const ParallaxLanding = () => {
               </div>
             </div>
 
-            {/* Bottom Section - Reduced margin */}
-            <div className="w-full grid grid-cols-3 gap-2 mb-2">
+            {/* Bottom Section - More space from events */}
+            <div className="w-full grid grid-cols-3 gap-3 mt-auto mb-4">
               <RequirementCard title="Discord" />
               <RequirementCard title="Rules" />
               <RequirementCard title="Modpack" />
             </div>
+
+            {/* Close button */}
+            <button
+              className="absolute top-4 right-4 bg-deep-black rounded-full p-2"
+              onClick={() => setActiveTab(null)}
+            >
+              <span className="text-pure-white text-xl">×</span>
+            </button>
           </div>
         </div>
       )}
