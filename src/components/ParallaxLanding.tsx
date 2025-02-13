@@ -125,11 +125,11 @@ export const ParallaxLanding = () => {
         {/* Middle Section */}
         <div className="flex flex-col items-center gap-3">
           {/* YouTube and Game Selection */}
-          <div className="w-full max-w-[220px] bg-deep-black rounded-lg shadow-2xl overflow-hidden mb-2">
-            <div className="aspect-video">
+          <div className="w-full max-w-[140px] bg-deep-black rounded-lg shadow-2xl overflow-hidden mb-2">
+            <div className="relative pt-[177.77%]">
               <iframe
-                className="w-full h-full"
-                src="https://www.youtube.com/embed/your-video-id"
+                className="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/7fmBOuyZJjo"
                 title="TAW ARMA Division"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -203,12 +203,7 @@ export const ParallaxLanding = () => {
             <img 
               src={DiscordLogo}
               alt="Discord"
-              className="h-[6vh] object-contain"
-            />
-            <img 
-              src={TAWSEALLogo}
-              alt="TAW Seal"
-              className="h-[7vh] object-contain mb-2"
+              className="h-[6vh] object-contain mb-2"
             />
           </div>
         )}
@@ -341,11 +336,11 @@ export const ParallaxLanding = () => {
             </div>
 
             {/* YouTube Video */}
-            <div className="w-full max-w-[300px] bg-deep-black rounded-lg shadow-2xl overflow-hidden transition-all duration-300 transform hover:scale-150 hover:z-50">
-              <div className="aspect-video">
+            <div className="w-full max-w-[180px] bg-deep-black rounded-lg shadow-2xl overflow-hidden transition-all duration-300 transform hover:scale-150 hover:z-50">
+              <div className="relative pt-[177.77%]">
                 <iframe
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/your-video-id"
+                  className="absolute inset-0 w-full h-full"
+                  src="https://www.youtube.com/embed/7fmBOuyZJjo"
                   title="TAW ARMA Division"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
