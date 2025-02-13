@@ -271,6 +271,14 @@ export const ParallaxLanding = () => {
               <RequirementCard title="Modpack" />
             </div>
 
+            {/* Discord Logo */}
+            <img 
+              src={DiscordLogo}
+              alt="Discord"
+              className="h-[8vh] object-contain filter drop-shadow-[0_0_8px_rgba(12,64,62,0.6)] hover:drop-shadow-[0_0_12px_rgba(12,64,62,0.8)] animate-[pulse-glow_3s_ease-in-out_infinite] cursor-pointer mt-4"
+              onClick={() => window.open("https://discord.gg/vAZ2QgwgJw", "_blank", "noopener,noreferrer")}
+            />
+
             {/* Close button */}
             <button
               className="absolute top-4 right-4 bg-deep-black rounded-full p-2"
@@ -286,28 +294,6 @@ export const ParallaxLanding = () => {
 
   return (
     <div className="h-screen flex flex-col">
-      {/* Show Discord corners only on desktop */}
-      {!isMobile && (
-        <>
-          <div className="absolute top-4 left-4 z-40 animate-pulse">
-            <img 
-              src={DiscordLogo}
-              alt="Discord"
-              className="h-[6vh] object-contain filter drop-shadow-[0_0_8px_rgba(12,64,62,0.6)] hover:drop-shadow-[0_0_12px_rgba(12,64,62,0.8)] animate-[pulse-glow_3s_ease-in-out_infinite] cursor-pointer"
-              onClick={() => window.open("https://discord.gg/vAZ2QgwgJw", "_blank", "noopener,noreferrer")}
-            />
-          </div>
-          <div className="absolute top-4 right-4 z-40">
-            <img 
-              src={DiscordLogo}
-              alt="Discord"
-              className="h-[6vh] object-contain filter drop-shadow-[0_0_8px_rgba(12,64,62,0.6)] hover:drop-shadow-[0_0_12px_rgba(12,64,62,0.8)] animate-[pulse-glow_3s_ease-in-out_infinite] cursor-pointer"
-              onClick={() => window.open("https://discord.gg/vAZ2QgwgJw", "_blank", "noopener,noreferrer")}
-            />
-          </div>
-        </>
-      )}
-
       {isMobile ? (
         <MobileContent />
       ) : (
@@ -411,6 +397,14 @@ export const ParallaxLanding = () => {
                 <RequirementCard title="Rules" />
                 <RequirementCard title="Modpack" />
               </div>
+
+              {/* Discord Logo */}
+              <img 
+                src={DiscordLogo}
+                alt="Discord"
+                className="h-[8vh] object-contain filter drop-shadow-[0_0_8px_rgba(12,64,62,0.6)] hover:drop-shadow-[0_0_12px_rgba(12,64,62,0.8)] animate-[pulse-glow_3s_ease-in-out_infinite] cursor-pointer mt-4"
+                onClick={() => window.open("https://discord.gg/vAZ2QgwgJw", "_blank", "noopener,noreferrer")}
+              />
             </div>
           </motion.div>
 
@@ -459,6 +453,14 @@ export const ParallaxLanding = () => {
                 <RequirementCard title="Rules" />
                 <RequirementCard title="Modpack" />
               </div>
+
+              {/* Discord Logo */}
+              <img 
+                src={DiscordLogo}
+                alt="Discord"
+                className="h-[8vh] object-contain filter drop-shadow-[0_0_8px_rgba(12,64,62,0.6)] hover:drop-shadow-[0_0_12px_rgba(12,64,62,0.8)] animate-[pulse-glow_3s_ease-in-out_infinite] cursor-pointer mt-4"
+                onClick={() => window.open("https://discord.gg/vAZ2QgwgJw", "_blank", "noopener,noreferrer")}
+              />
             </div>
           </motion.div>
         </div>
