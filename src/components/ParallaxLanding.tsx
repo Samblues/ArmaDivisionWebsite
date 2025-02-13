@@ -8,6 +8,7 @@ import ReforgerBackground from '../assets/ArmaReforgerbackground.jpg';
 import Arma3Background from '../assets/Arma3background.jpg';
 import TAWSEALLogo from '../assets/TawSealLogo.png';
 import DiscordLogo from '../assets/Discord-Logo.png';
+import TAWNameLogo from '../assets/TawNameLogo.png';
 import { convertUTCToLocal } from '../utils/timeUtils';
 
 export const ParallaxLanding = () => {
@@ -111,20 +112,29 @@ export const ParallaxLanding = () => {
       {/* Central Content - Fixed height */}
       <div className="h-full flex flex-col items-center justify-between p-3 relative z-10">
         {/* Top Section */}
-        <div className="flex flex-col items-center gap-2">
+        <div className="flex flex-col items-center gap-3">
+          {/* TAW Seal Logo with link */}
           <img 
-            src={ReforgerLogo}
-            alt="The Art of Warfare – ARMA Division"
-            className="h-[10vh] object-contain"
+            src={TAWSEALLogo}
+            alt="TAW"
+            className="h-[8vh] object-contain cursor-pointer"
+            onClick={() => window.open("https://www.taw.net", "_blank", "noopener,noreferrer")}
           />
+          
           <h1 className="text-lg font-primary font-bold text-pure-white uppercase tracking-wide text-shadow-glow whitespace-nowrap scale-[0.85]">
             The Art of Warfare - ARMA Division
           </h1>
+
+          <img 
+            src={ReforgerLogo}
+            alt="The Art of Warfare – ARMA Division"
+            className="h-[15vh] object-contain"
+          />
         </div>
 
         {/* Middle Section */}
         <div className="flex flex-col items-center gap-3">
-          {/* YouTube and Game Selection */}
+          {/* YouTube Video */}
           <div className="w-full max-w-[140px] bg-deep-black rounded-lg shadow-2xl overflow-hidden mb-2">
             <div className="relative pt-[177.77%]">
               <iframe
@@ -244,19 +254,9 @@ export const ParallaxLanding = () => {
 
               {/* Events List */}
               <div className="w-full space-y-3">
-                {activeTab === 'left' ? (
-                  <>
-                    <EventCard type="[PVE]" day="Tuesday" time="19:30" name="[TAW] Public Casual Milsim" />
-                    <EventCard type="[PVP]" day="Thursday" time="19:30" name="[TAW] Sieze and Secure" />
-                    <EventCard type="[PVP]" day="Sunday" time="19:30" name="[TAW] Sieze and Secure" />
-                  </>
-                ) : (
-                  <>
-                    <EventCard type="[PVE]" day="Thursday" time="19:30" name="[TAW] Thursday Milsim Event" />
-                    <EventCard type="[PVE]" day="Sunday" time="19:30" name="[TAW] Sunday Milsim Event" />
-                    <EventCard type="[PVP]" day="Saturday" time="19:30" name="[TAW] Optional Event" />
-                  </>
-                )}
+                <EventCard type="[PVE]" day="Tuesday" time="19:30" name="[TAW] Public Casual Milsim" />
+                <EventCard type="[PVP]" day="Thursday" time="19:30" name="[TAW] Sieze and Secure" />
+                <EventCard type="[PVP]" day="Sunday" time="19:30" name="[TAW] Sieze and Secure" />
               </div>
             </div>
 
@@ -445,6 +445,17 @@ export const ParallaxLanding = () => {
               </div>
             </div>
           </motion.div>
+
+          {/* Bottom TAW Seal Logo */}
+          <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 z-30">
+            <img 
+              src={TAWSEALLogo}
+              alt="TAW Seal"
+              className="h-[12vh] object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] transition-all duration-300 cursor-pointer"
+              onClick={() => window.open("https://www.taw.net", "_blank", "noopener,noreferrer")}
+            />
+          </div>
+
         </div>
       )}
     </div>
