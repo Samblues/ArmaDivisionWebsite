@@ -9,7 +9,7 @@ export const CenterContent = ({
 }: CenterContentProps) => {
   return (
     <motion.div 
-      className="absolute top-8 left-1/2 z-30 flex flex-col items-center gap-6 h-[85vh] justify-between"
+      className="absolute top-4 sm:top-6 md:top-8 left-1/2 z-30 flex flex-col items-center justify-start gap-3 sm:gap-4 md:gap-6 min-h-[90vh] max-w-[90vw]"
       style={{ 
         transform: 'none',
         x: centerOffset,
@@ -18,20 +18,20 @@ export const CenterContent = ({
       onMouseLeave={() => setIsCenterHovered(false)}
     >
       {/* Logo and Title */}
-      <div className="flex flex-col items-center gap-4">
+      <div className="flex flex-col items-center gap-2 sm:gap-4">
         <img 
           src={ReforgerLogo}
           alt="The Art of Warfare – ARMA Division"
-          className="h-[15vh] object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] transition-all duration-300"
+          className="h-[8vh] sm:h-[10vh] md:h-[12vh] min-h-[60px] max-h-[120px] object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] transition-all duration-300"
         />
-        <h1 className="text-2xl font-primary font-bold text-pure-white uppercase tracking-wide text-shadow-glow hover:text-shadow-glow-intense transition-all duration-300">
+        <h1 className="text-lg sm:text-xl lg:text-2xl font-primary font-bold text-pure-white uppercase tracking-wide text-shadow-glow hover:text-shadow-glow-intense transition-all duration-300 text-center">
           The Art of Warfare – ARMA Division
         </h1>
       </div>
 
-      {/* YouTube Video - Portrait mode with increased width */}
-      <div className="w-[500px] bg-deep-black rounded-lg shadow-2xl overflow-hidden transition-all duration-300 transform hover:scale-125 hover:z-50">
-        <div className="relative w-full" style={{ paddingTop: '140%' }}> {/* More portrait but not as extreme as before */}
+      {/* YouTube Video */}
+      <div className="h-[35vh] sm:h-[40vh] md:h-[45vh] lg:h-[60vh] w-[min(280px,70vw)] sm:w-[min(320px,75vw)] md:w-[min(360px,75vw)] lg:w-[min(400px,80vw)] bg-deep-black rounded-lg shadow-2xl overflow-hidden transition-all duration-300 transform hover:scale-110 hover:z-50">
+        <div className="relative w-full h-full">
           <iframe
             className="absolute inset-0 w-full h-full"
             src="https://www.youtube.com/embed/ExqPui_UU-s?si=SVymjQ8dOie7blbP"
@@ -47,7 +47,7 @@ export const CenterContent = ({
       <img 
         src={TAWSEALLogo}
         alt="TAW"
-        className="h-[12vh] object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] transition-all duration-300 cursor-pointer"
+        className="h-[8vh] sm:h-[9vh] md:h-[10vh] min-h-[50px] max-h-[90px] object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] transition-all duration-300 cursor-pointer mt-auto"
         onClick={() => window.open("https://www.taw.net", "_blank", "noopener,noreferrer")}
       />
     </motion.div>

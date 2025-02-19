@@ -73,9 +73,8 @@ export const MobileContent = ({ setFullscreenContent }: MobileContentProps) => {
           </h2>
           <div className="flex w-full gap-3">
             <button
-              className={`flex-1 bg-black bg-opacity-50 backdrop-blur-sm rounded-lg p-4 transition-all duration-300 ${
-                activeTab === 'left' ? 'bg-opacity-70' : ''
-              }`}
+              className={`flex-1 bg-black bg-opacity-50 backdrop-blur-sm rounded-lg p-4 transition-all duration-300 
+                ${activeTab === 'left' ? 'bg-opacity-70 border-2 border-crimson-red' : 'border-2 border-transparent'}`}
               onClick={() => setActiveTab('left')}
             >
               <img 
@@ -85,9 +84,8 @@ export const MobileContent = ({ setFullscreenContent }: MobileContentProps) => {
               />
             </button>
             <button
-              className={`flex-1 bg-black bg-opacity-50 backdrop-blur-sm rounded-lg p-4 transition-all duration-300 ${
-                activeTab === 'right' ? 'bg-opacity-70' : ''
-              }`}
+              className={`flex-1 bg-black bg-opacity-50 backdrop-blur-sm rounded-lg p-4 transition-all duration-300 
+                ${activeTab === 'right' ? 'bg-opacity-70 border-2 border-crimson-red' : 'border-2 border-transparent'}`}
               onClick={() => setActiveTab('right')}
             >
               <img 

@@ -16,6 +16,9 @@ import tyran from './tyran.png';
 import prophet from './prophet.png';
 import fearothy from './fearothy.png';
 import ARMods from './ARMods.png';
+import cosmicpanda from './cosmicpanda.png';
+import adriancowan from './adriancowan.png';
+import alabbs from './alabbs.png';
 
 export {
   TAWSEALLogo,
@@ -35,5 +38,8 @@ export {
   tyran,
   prophet,
   fearothy,
-  ARMods
+  ARMods,
+  cosmicpanda,
+  adriancowan,
+  alabbs,
 }; 
