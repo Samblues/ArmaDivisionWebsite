@@ -1,4 +1,4 @@
-export const convertUTCToLocal = (time: string, day: string) => {
+export const convertUTCToLocal = (time: string, day: string): string => {
   const [hours, minutes] = time.split(':').map(Number);
   const date = new Date();
   const dayMap: { [key: string]: number } = {

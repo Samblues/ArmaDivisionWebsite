@@ -1,9 +1,9 @@
 // import React from 'react';
-import { ParallaxLanding } from './components/ParallaxLanding';
+import { ParallaxLanding } from './components/Landing/ParallaxLanding';
 
 function App() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-deep-black">
       <ParallaxLanding />
     </div>
   );
