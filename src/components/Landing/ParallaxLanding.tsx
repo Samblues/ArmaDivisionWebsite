@@ -6,7 +6,7 @@ import { CenterContent } from './CenterContent';
 import { SideContent } from './SideContent';
 import { FullscreenContent } from './Fullscreen/FullscreenContent';
 import { ErrorBoundary } from '../ErrorBoundary';
-import { ArmaReforgerLogo, Arma3Logo } from '@/assets';
+import { ArmaReforgerLogo, Arma3Logo } from '../../assets';
 import { isSide } from '@/types';
 // ... other imports
 
@@ -28,6 +28,33 @@ export const ParallaxLanding = () => {
     [0, window.innerWidth], 
     [`calc(15% - 50%)`, `calc(-15% - 50%)`]
   );
+
+  useEffect(() => {
+    // Set initial mouse position to center
+    mouseX.set(window.innerWidth / 2);
+
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!fullscreenContent.type) {
+        mouseX.set(e.clientX);
+        setHoveredSide(e.clientX < window.innerWidth / 2 ? 'left' : 'right');
+      }
+    };
+
+    const handleMouseLeave = () => {
+      if (!fullscreenContent.type && document.hasFocus()) {
+        mouseX.set(window.innerWidth / 2);
+        setHoveredSide(null);
+      }
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseleave', handleMouseLeave);
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, [mouseX, fullscreenContent.type]);
 
   const handleResize = useCallback(() => {
     setIsMobile(window.innerWidth <= 640);
@@ -76,7 +103,20 @@ export const ParallaxLanding = () => {
     <ErrorBoundary>
       <div className="h-screen flex flex-col">
         {isMobile ? (
-          <MobileContent setFullscreenContent={setFullscreenContent} />
+          <>
+            <MobileContent setFullscreenContent={setFullscreenContent} />
+            <AnimatePresence mode="wait">
+              {fullscreenContent.type && (
+                <div className="z-50 fixed inset-0">
+                  <FullscreenContent 
+                    type={fullscreenContent.type}
+                    side={fullscreenContent.side || 'left'}
+                    onClose={handleClose}
+                  />
+                </div>
+              )}
+            </AnimatePresence>
+          </>
         ) : (
           <>
             <div className={`h-full flex relative overflow-hidden transition-all duration-700 ${
@@ -119,4 +159,4 @@ export const ParallaxLanding = () => {
       </div>
     </ErrorBoundary>
   );
-}; 
+};
