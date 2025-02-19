@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { SideContentProps, Side } from '@/types';
-import { EventCard, RequirementCard } from './UI';
+import { RequirementCard } from './UI';
 import { 
   ArmaReforgerLogo, 
   Arma3Logo, 
@@ -18,11 +18,46 @@ const getSideContent = (side: Side) => {
       ? "1st Battalion [EU] & 4th Battalion [NA]"
       : "2nd Battalion [EU] & 3rd Battalion [NA]",
     subtitle: isLeftSide 
-      ? "Arma Reforger - Event"
-      : "Arma III - Events",
+      ? "Weekly Events"
+      : "Weekly Events",
     altText: isLeftSide ? "Arma Reforger" : "Arma 3"
   };
 };
+
+interface EventCardProps {
+  day: string;
+  time: string;
+  name?: string;
+  type?: string;
+  battalion?: string;
+}
+
+const EventCard = ({ day, time, name, type, battalion }: EventCardProps) => (
+  <div className={`bg-black bg-opacity-40 backdrop-blur-sm rounded-lg shadow-md ${battalion ? 'pt-2 pb-3 px-3' : 'p-2'}`}>
+    <div className="flex flex-col">
+      {battalion && (
+        <span className="text-[#5865F2] font-bold text-sm mb-2 border-b border-[#5865F2] pb-1">
+          {battalion}
+        </span>
+      )}
+      <div className="flex items-center gap-2">
+        {type && (
+          <span className="font-bold text-crimson-red text-sm">
+            {type}
+          </span>
+        )}
+        <span className="text-pure-white font-secondary text-sm">
+          {`${day} - ${time}`}
+        </span>
+      </div>
+      {name && (
+        <span className="text-pure-white font-secondary text-sm">
+          {name}
+        </span>
+      )}
+    </div>
+  </div>
+);
 
 export const SideContent = ({
   side,
@@ -32,6 +67,67 @@ export const SideContent = ({
   onSetFullscreenContent
 }: SideContentProps) => {
   const { background, logo, title, subtitle, altText } = getSideContent(side);
+
+  const renderEvents = () => {
+    const isLeftSide = side === 'left';
+    
+    if (isLeftSide) {
+      return (
+        <div className="w-[300px] mx-auto space-y-1">
+          <EventCard 
+            battalion="AM 1 [EU] (CEST)"
+            day="Sunday"
+            time="20:30 - 22:30"
+            type="(Optional PvP)"
+          />
+          <EventCard 
+            day="Tuesday"
+            time="20:30 - 22:30"
+            type="(Modded PvE)"
+          />
+          <EventCard 
+            day="Thursday"
+            time="20:30 - 22:30"
+            type="(Vanilla PvE)"
+          />
+          <div className="mt-3">
+            <EventCard 
+              battalion="AM 4 [NA] (EST)"
+              day="Friday"
+              time="19:00 - 21:30"
+              type="(Modded PvE)"
+            />
+          </div>
+        </div>
+      );
+    }
+    
+    return (
+      <>
+        <div className="w-[300px] mx-auto space-y-1">
+          <EventCard 
+            battalion="AM 2 [EU] (CEST)"
+            day="Sunday"
+            time="20:00 - 22:30"
+             type="(Modded PvE)"
+          />
+          <EventCard 
+            day="Thursday"
+            time="20:00 - 22:30"
+             type="(Modded PvE)"
+          />
+        </div>
+        <div className="w-[300px] mx-auto space-y-2 md:space-y-4 mt-4">
+          <EventCard 
+            battalion="AM 3 [NA] (EST)"
+            day="Saturday"
+            time="19:00 - 21:30"
+             type="(Modded PvE)"
+          />
+        </div>
+      </>
+    );
+  };
 
   return (
     <motion.div
@@ -60,11 +156,7 @@ export const SideContent = ({
         <h3 className="text-2xl font-primary uppercase">{subtitle}</h3>
 
         {/* Events */}
-        <div className="w-[300px] mx-auto space-y-2 md:space-y-4">
-          <EventCard type="[PVE]" day="Tuesday" time="19:30" name="[TAW] Public Casual Milsim" />
-          <EventCard type="[PVP]" day="Thursday" time="19:30" name="[TAW] Sieze and Secure" />
-          <EventCard type="[PVP]" day="Sunday" time="19:30" name="[TAW] Sieze and Secure" />
-        </div>
+        {renderEvents()}
 
         {/* Requirements */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
