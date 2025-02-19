@@ -29,12 +29,12 @@ export const CenterContent = ({
         </h1>
       </div>
 
-      {/* YouTube Video - Fixed aspect ratio */}
-      <div className="w-full max-w-[500px] bg-deep-black rounded-lg shadow-2xl overflow-hidden transition-all duration-300 transform hover:scale-125 hover:z-50">
-        <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
+      {/* YouTube Video - Portrait mode with increased height */}
+      <div className="w-[400px] bg-deep-black rounded-lg shadow-2xl overflow-hidden transition-all duration-300 transform hover:scale-125 hover:z-50">
+        <div className="relative w-full" style={{ paddingTop: '177.78%' }}> {/* 16:9 -> 9:16 aspect ratio */}
           <iframe
             className="absolute inset-0 w-full h-full"
-            src="https://www.youtube.com/embed/ExqPui_UU-s"
+            src="https://www.youtube.com/embed/ExqPui_UU-s?si=SVymjQ8dOie7blbP"
             title="TAW ARMA Division"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

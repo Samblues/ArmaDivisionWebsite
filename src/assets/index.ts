@@ -12,6 +12,10 @@ import ContentBackgroundBootcampA3 from './ContentBackgroundBootcampA3.jpg';
 import Arma3Background from './Arma3background.jpg';
 import DiscordLogo from './Discord-Logo.png';
 import AmBackground from './Am_background.jpg';
+import tyran from './tyran.png';
+import prophet from './prophet.png';
+import fearothy from './fearothy.png';
+import ARMods from './ARMods.png';
 
 export {
   TAWSEALLogo,
@@ -27,5 +31,9 @@ export {
   ContentBackgroundBootcampA3,
   Arma3Background,
   DiscordLogo,
-  AmBackground
+  AmBackground,
+  tyran,
+  prophet,
+  fearothy,
+  ARMods
 }; 

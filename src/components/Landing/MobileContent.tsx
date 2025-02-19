@@ -57,7 +57,7 @@ export const MobileContent = ({ setFullscreenContent }: MobileContentProps) => {
           <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
             <iframe
               className="absolute inset-0 w-full h-full"
-              src="https://www.youtube.com/embed/ExqPui_UU-s"
+              src="https://www.youtube.com/embed/ExqPui_UU-s?si=SVymjQ8dOie7blbP"
               title="TAW ARMA Division"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -103,7 +103,7 @@ export const MobileContent = ({ setFullscreenContent }: MobileContentProps) => {
         {activeTab && (
           <div className="grid grid-cols-3 gap-2 w-full mb-6">
             <RequirementCard 
-              title="Modpack" 
+              title="Bootcamp and Modpack"
               onClick={() => {
                 setFullscreenContent({ type: 'modpack', side: activeTab });
               }}

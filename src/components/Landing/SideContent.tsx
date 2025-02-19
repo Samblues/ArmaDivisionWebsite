@@ -69,7 +69,7 @@ export const SideContent = ({
         {/* Requirements */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <RequirementCard 
-            title="Modpack" 
+            title="Bootcamp and Modpack"
             onClick={() => onSetFullscreenContent({ type: 'modpack', side })}
           />
           <RequirementCard 
