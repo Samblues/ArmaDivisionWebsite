@@ -35,8 +35,21 @@ export const ParallaxLanding = () => {
 
     const handleMouseMove = (e: MouseEvent) => {
       if (!fullscreenContent.type) {
+        const centerThreshold = 100; // Adjust this value as needed
+        const centerZone = window.innerWidth / 2;
+        
+        // Calculate distance from center
+        const distanceFromCenter = Math.abs(e.clientX - centerZone);
+        
+        if (distanceFromCenter < centerThreshold) {
+          setHoveredSide(null);
+          setIsCenterHovered(true);
+        } else {
+          setIsCenterHovered(false);
+          setHoveredSide(e.clientX < centerZone ? 'left' : 'right');
+        }
+        
         mouseX.set(e.clientX);
-        setHoveredSide(e.clientX < window.innerWidth / 2 ? 'left' : 'right');
       }
     };
 
@@ -44,6 +57,7 @@ export const ParallaxLanding = () => {
       if (!fullscreenContent.type && document.hasFocus()) {
         mouseX.set(window.innerWidth / 2);
         setHoveredSide(null);
+        setIsCenterHovered(false);
       }
     };
 
@@ -122,19 +136,22 @@ export const ParallaxLanding = () => {
             <div className={`h-full flex relative overflow-hidden transition-all duration-700 ${
               fullscreenContent.type ? 'pointer-events-none opacity-30 scale-[0.95]' : ''
             }`}>
-              <CenterContent 
-                isCenterHovered={isCenterHovered}
-                setIsCenterHovered={setIsCenterHovered}
-                centerOffset={centerOffset}
-              />
-              
               <SideContent 
                 side="left"
                 width={leftWidth}
                 hoveredSide={hoveredSide}
                 isCenterHovered={isCenterHovered}
                 onSetFullscreenContent={setFullscreenContent}
+                className="z-10"
               />
+              
+              <div className="absolute inset-0 z-20 pointer-events-none">
+                <CenterContent 
+                  isCenterHovered={isCenterHovered}
+                  setIsCenterHovered={setIsCenterHovered}
+                  centerOffset={centerOffset}
+                />
+              </div>
               
               <SideContent 
                 side="right"
@@ -142,6 +159,7 @@ export const ParallaxLanding = () => {
                 hoveredSide={hoveredSide}
                 isCenterHovered={isCenterHovered}
                 onSetFullscreenContent={setFullscreenContent}
+                className="z-10"
               />
             </div>
             

@@ -59,12 +59,22 @@ const EventCard = ({ day, time, name, type, battalion }: EventCardProps) => (
   </div>
 );
 
+interface SideContentProps {
+  side: Side;
+  width: MotionValue<string>;
+  hoveredSide: Side | null;
+  isCenterHovered: boolean;
+  onSetFullscreenContent: (content: { type: ContentType; side: Side }) => void;
+  className?: string;
+}
+
 export const SideContent = ({
   side,
   width,
   hoveredSide,
   isCenterHovered,
-  onSetFullscreenContent
+  onSetFullscreenContent,
+  className = ''
 }: SideContentProps) => {
   const { background, logo, title, subtitle, altText } = getSideContent(side);
 
@@ -131,7 +141,7 @@ export const SideContent = ({
 
   return (
     <motion.div
-      className="h-full flex flex-col items-center pt-[15vh] sm:pt-[20vh] relative"
+      className={`h-full flex flex-col items-center pt-[20vh] relative ${className}`}
       style={{ width }}
     >
       {/* Background with overlay */}
