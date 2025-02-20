@@ -38,7 +38,7 @@ export const MobileContent = ({ setFullscreenContent }: MobileContentProps) => {
         </div>
       </div>
 
-      {/* Content Container - Lower z-index */}
+      {/* Content Container */}
       <div className="relative z-10 flex flex-col min-h-screen p-4">
         {/* Top Section */}
         <div className="flex flex-col items-center gap-4 mb-6">
@@ -52,11 +52,11 @@ export const MobileContent = ({ setFullscreenContent }: MobileContentProps) => {
           </h1>
         </div>
 
-        {/* YouTube Video */}
-        <div className="w-full bg-deep-black rounded-lg shadow-2xl overflow-hidden mb-6">
-          <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
+        {/* Show YouTube Video only when no tab is selected */}
+        {!activeTab && (
+          <div className="w-full aspect-[9/16] bg-deep-black rounded-lg shadow-2xl overflow-hidden mb-6">
             <iframe
-              className="absolute inset-0 w-full h-full"
+              className="w-full h-full"
               src="https://www.youtube.com/embed/ExqPui_UU-s?si=SVymjQ8dOie7blbP"
               title="TAW ARMA Division"
               frameBorder="0"
@@ -64,7 +64,7 @@ export const MobileContent = ({ setFullscreenContent }: MobileContentProps) => {
               allowFullScreen
             />
           </div>
-        </div>
+        )}
 
         {/* Game Selection */}
         <div className="flex flex-col items-center gap-4 mb-6">
@@ -97,7 +97,14 @@ export const MobileContent = ({ setFullscreenContent }: MobileContentProps) => {
           </div>
         </div>
 
-        {/* Requirements - Only show when a tab is selected */}
+        {/* Show Events when a tab is selected */}
+        {activeTab && (
+          <div className="mb-6">
+            <EventList side={activeTab} />
+          </div>
+        )}
+
+        {/* Requirements */}
         {activeTab && (
           <div className="grid grid-cols-3 gap-2 w-full mb-6">
             <RequirementCard 
@@ -121,7 +128,7 @@ export const MobileContent = ({ setFullscreenContent }: MobileContentProps) => {
           </div>
         )}
 
-        {/* TAW Seal Logo at bottom */}
+        {/* TAW Seal Logo */}
         <div className="mt-auto pt-4">
           <img 
             src={TAWSEALLogo}
@@ -133,4 +140,69 @@ export const MobileContent = ({ setFullscreenContent }: MobileContentProps) => {
       </div>
     </div>
   );
-}; 
+};
+
+// Create a new EventList component to handle the events display
+const EventList = ({ side }: { side: Side }) => {
+  if (side === 'left') {
+    return (
+      <div className="w-full space-y-1">
+        <EventCard 
+          battalion="AM 1 [EU] (CEST)"
+          day="Sunday"
+          time="20:30 - 22:30"
+          type="(Optional PvP)"
+          name="Weekly Event"
+        />
+        <EventCard 
+          day="Tuesday"
+          time="20:30 - 22:30"
+          type="(Modded PvE)"
+          name="Weekly Event"
+        />
+        <EventCard 
+          day="Thursday"
+          time="20:30 - 22:30"
+          type="(Vanilla PvE)"
+          name="Weekly Event"
+        />
+        <div className="mt-3">
+          <EventCard 
+            battalion="AM 4 [NA] (EST)"
+            day="Friday"
+            time="19:00 - 21:30"
+            type="(Modded PvE)"
+            name="Weekly Event"
+          />
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="w-full space-y-1">
+      <EventCard 
+        battalion="AM 2 [EU] (CEST)"
+        day="Sunday"
+        time="20:00 - 22:30"
+        type="(Modded PvE)"
+        name="Weekly Event"
+      />
+      <EventCard 
+        day="Thursday"
+        time="20:00 - 22:30"
+        type="(Modded PvE)"
+        name="Weekly Event"
+      />
+      <div className="mt-3">
+        <EventCard 
+          battalion="AM 3 [NA] (EST)"
+          day="Saturday"
+          time="19:00 - 21:30"
+          type="(Modded PvE)"
+          name="Weekly Event"
+        />
+      </div>
+    </div>
+  );
+};
