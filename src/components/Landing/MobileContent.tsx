@@ -38,23 +38,23 @@ export const MobileContent = ({ setFullscreenContent }: MobileContentProps) => {
         </div>
       </div>
 
-      {/* Content Container */}
-      <div className="relative z-10 flex flex-col min-h-screen p-4 overflow-y-auto">
-        {/* Top Section - Reduced sizes */}
-        <div className="flex flex-col items-center gap-3 mb-4">
+      {/* Content Container - Lower z-index */}
+      <div className="relative z-10 flex flex-col min-h-screen p-4">
+        {/* Top Section */}
+        <div className="flex flex-col items-center gap-4 mb-6">
           <img 
             src={ReforgerLogo}
             alt="The Art of Warfare – ARMA Division"
-            className="h-[10vh] min-h-[60px] max-h-[100px] object-contain"
+            className="h-[12vh] object-contain"
           />
-          <h1 className="text-lg sm:text-xl font-primary font-bold text-pure-white uppercase tracking-wide text-shadow-glow text-center">
+          <h1 className="text-xl font-primary font-bold text-pure-white uppercase tracking-wide text-shadow-glow text-center">
             The Art of Warfare – ARMA Division
           </h1>
         </div>
 
-        {/* YouTube Video - Adjusted size */}
-        <div className="w-full bg-deep-black rounded-lg shadow-2xl overflow-hidden mb-4">
-          <div className="relative w-full" style={{ paddingTop: '133.33%' }}>
+        {/* YouTube Video */}
+        <div className="w-full bg-deep-black rounded-lg shadow-2xl overflow-hidden mb-6">
+          <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
             <iframe
               className="absolute inset-0 w-full h-full"
               src="https://www.youtube.com/embed/ExqPui_UU-s?si=SVymjQ8dOie7blbP"
@@ -66,61 +66,67 @@ export const MobileContent = ({ setFullscreenContent }: MobileContentProps) => {
           </div>
         </div>
 
-        {/* Game Selection - Adjusted spacing */}
-        <div className="flex flex-col items-center gap-3 mb-4">
-          <h2 className="text-base sm:text-lg font-primary text-pure-white uppercase text-shadow-glow">
+        {/* Game Selection */}
+        <div className="flex flex-col items-center gap-4 mb-6">
+          <h2 className="text-lg font-primary text-pure-white uppercase text-shadow-glow">
             Choose Game
           </h2>
-          <div className="flex w-full gap-2">
+          <div className="flex w-full gap-3">
             <button
-              className={`flex-1 bg-black bg-opacity-50 backdrop-blur-sm rounded-lg p-3 transition-all duration-300 
+              className={`flex-1 bg-black bg-opacity-50 backdrop-blur-sm rounded-lg p-4 transition-all duration-300 
                 ${activeTab === 'left' ? 'bg-opacity-70 border-2 border-crimson-red' : 'border-2 border-transparent'}`}
               onClick={() => setActiveTab('left')}
             >
               <img 
                 src={ArmaReforgerLogo}
                 alt="Arma Reforger"
-                className="h-10 w-full object-contain"
+                className="h-12 w-full object-contain"
               />
             </button>
             <button
-              className={`flex-1 bg-black bg-opacity-50 backdrop-blur-sm rounded-lg p-3 transition-all duration-300 
+              className={`flex-1 bg-black bg-opacity-50 backdrop-blur-sm rounded-lg p-4 transition-all duration-300 
                 ${activeTab === 'right' ? 'bg-opacity-70 border-2 border-crimson-red' : 'border-2 border-transparent'}`}
               onClick={() => setActiveTab('right')}
             >
               <img 
                 src={Arma3Logo}
                 alt="Arma 3"
-                className="h-10 w-full object-contain"
+                className="h-12 w-full object-contain"
               />
             </button>
           </div>
         </div>
 
-        {/* Requirements - Adjusted grid for better mobile view */}
+        {/* Requirements - Only show when a tab is selected */}
         {activeTab && (
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 w-full mb-4">
+          <div className="grid grid-cols-3 gap-2 w-full mb-6">
             <RequirementCard 
               title="Bootcamp and Modpack"
-              onClick={() => setFullscreenContent({ type: 'modpack', side: activeTab })}
+              onClick={() => {
+                setFullscreenContent({ type: 'modpack', side: activeTab });
+              }}
             />
             <RequirementCard 
               title="Rules" 
-              onClick={() => setFullscreenContent({ type: 'rules', side: activeTab })}
+              onClick={() => {
+                setFullscreenContent({ type: 'rules', side: activeTab });
+              }}
             />
             <RequirementCard 
               title="Training" 
-              onClick={() => setFullscreenContent({ type: 'training', side: activeTab })}
+              onClick={() => {
+                setFullscreenContent({ type: 'training', side: activeTab });
+              }}
             />
           </div>
         )}
 
-        {/* TAW Seal Logo - Adjusted size */}
-        <div className="mt-auto pt-2">
+        {/* TAW Seal Logo at bottom */}
+        <div className="mt-auto pt-4">
           <img 
             src={TAWSEALLogo}
             alt="TAW"
-            className="h-[6vh] min-h-[40px] max-h-[60px] object-contain mx-auto cursor-pointer"
+            className="h-[8vh] object-contain mx-auto cursor-pointer"
             onClick={() => window.open("https://www.taw.net", "_blank", "noopener,noreferrer")}
           />
         </div>
