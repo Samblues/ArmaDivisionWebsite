@@ -131,7 +131,7 @@ export const SideContent = ({
 
   return (
     <motion.div
-      className="h-full flex flex-col items-center pt-[20vh] relative"
+      className="h-full flex flex-col items-center pt-[15vh] sm:pt-[20vh] relative"
       style={{ width }}
     >
       {/* Background with overlay */}
@@ -143,17 +143,17 @@ export const SideContent = ({
       </div>
 
       {/* Content */}
-      <div className={`relative z-10 text-white transition-opacity duration-300 flex flex-col items-center gap-4 md:gap-8 w-full px-4 md:px-8 ${
+      <div className={`relative z-10 text-white transition-opacity duration-300 flex flex-col items-center gap-3 sm:gap-4 md:gap-8 w-full px-2 sm:px-4 md:px-8 ${
         isCenterHovered ? 'opacity-50' : 
         hoveredSide === side ? 'opacity-100' : 'opacity-50'
       }`}>
         <img 
           src={logo}
           alt={altText}
-          className="h-24 w-[300px] object-contain mb-4"
+          className="h-16 sm:h-20 md:h-24 w-[200px] sm:w-[250px] md:w-[300px] object-contain mb-2 sm:mb-4"
         />
-        <h2 className="text-4xl font-primary uppercase mb-2 text-pure-white">{title}</h2>
-        <h3 className="text-2xl font-primary uppercase">{subtitle}</h3>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-primary uppercase mb-1 sm:mb-2 text-pure-white text-center">{title}</h2>
+        <h3 className="text-xl sm:text-2xl font-primary uppercase text-center">{subtitle}</h3>
 
         {/* Events */}
         {renderEvents()}

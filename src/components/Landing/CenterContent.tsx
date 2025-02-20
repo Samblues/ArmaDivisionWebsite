@@ -9,7 +9,7 @@ export const CenterContent = ({
 }: CenterContentProps) => {
   return (
     <motion.div 
-      className="absolute top-4 sm:top-6 md:top-8 left-1/2 z-30 flex flex-col items-center justify-start gap-3 sm:gap-4 md:gap-6 min-h-[90vh] max-w-[90vw]"
+      className="absolute top-4 sm:top-6 md:top-8 left-1/2 z-30 flex flex-col items-center gap-4 sm:gap-6 min-h-[85vh] justify-between w-full max-w-[90vw] lg:max-w-[70vw]"
       style={{ 
         transform: 'none',
         x: centerOffset,
