@@ -42,7 +42,7 @@ const EventCard = ({ day, time, name, type, battalion }: EventCardProps) => (
       )}
       <div className="flex items-center gap-2">
         {type && (
-          <span className="font-bold text-crimson-red text-sm">
+          <span className="font-bold text-[#FF6B6B] text-sm">
             {type}
           </span>
         )}

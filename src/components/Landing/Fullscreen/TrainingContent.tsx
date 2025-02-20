@@ -47,71 +47,81 @@ export const TrainingContent = ({ side, onClose }: TrainingContentProps) => {
   if (!isLeftSide) {
     return (
       <FullscreenWrapper side={side} type="training">
-        <div className="relative z-10 h-screen p-4 sm:p-8 flex flex-col items-center overflow-y-auto">
-          <img 
-            src={logo}
-            alt={altText}
-            className="h-12 sm:h-16 w-[200px] sm:w-[250px] object-contain mb-2 sm:mb-4"
-          />
-
-          {/* Staff Section */}
-          <div className="w-full max-w-4xl mb-4 sm:mb-8">
-            <h2 className="text-2xl sm:text-3xl font-primary uppercase mb-2 sm:mb-4 text-pure-white text-center">
-              Training Staff
-            </h2>
-            <div className="flex flex-col items-center gap-2 sm:gap-4">
-              <StaffCard 
-                name="CosmicPanda"
-                role="Training Specialist"
-                image={cosmicpanda}
-                className="w-[240px] sm:w-[280px]"
-              />
-              <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
-                <StaffCard 
-                  name="AdrianCowan"
-                  role="Training Instructor"
-                  image={adriancowan}
-                  className="w-[240px] sm:w-[280px]"
-                />
-                <StaffCard 
-                  name="Alabbs"
-                  role="Training Instructor"
-                  image={alabbs}
-                  className="w-[240px] sm:w-[280px]"
-                />
-                <StaffCard 
-                  name="Fearothy"
-                  role="Training Instructor"
-                  image={fearothy}
-                  className="w-[240px] sm:w-[280px]"
-                />
-              </div>
-            </div>
+        <div className="relative z-10 min-h-screen h-screen p-4 sm:p-8 flex flex-col items-center overflow-y-auto">
+          {/* Sticky Header - no background or effects */}
+          <div className="sticky top-0 w-full py-2 -mt-4 mb-4">
+            <img 
+              src={logo}
+              alt={altText}
+              className="h-10 sm:h-12 w-[180px] sm:w-[200px] object-contain mx-auto"
+            />
           </div>
 
-          {/* Downloads Section */}
-          <div className="w-full max-w-4xl mb-6">
-            <h2 className="text-2xl sm:text-3xl font-primary uppercase mb-4 text-pure-white text-center">
-              Quick Links
-            </h2>
-            <button 
-              className="w-full bg-tactical-green p-4 sm:p-6 rounded text-xl sm:text-2xl text-pure-white font-primary hover:bg-opacity-80 transition-all mb-4"
-              onClick={() => window.open("https://drive.google.com/file/d/1K2TwPenBsqtq12SMJF8XcLkoUG4K-QEh/view", "_blank")}
-            >
-              CTC Training Mission Download
-            </button>
-            <button 
-              className="w-full bg-crimson-red p-4 sm:p-6 rounded text-xl sm:text-2xl text-pure-white font-primary hover:bg-opacity-80 transition-all mb-4"
-              onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLSdykee7E-75ldEvuQ4SYBT1H1dG2v4sFCG5j85dDJYcPVDgUA/formResponse", "_blank")}
-            >
-              CTC Badge Request Form
-            </button>
-            <button 
-              className="w-full bg-crimson-red p-4 sm:p-6 rounded text-xl sm:text-2xl text-pure-white font-primary hover:bg-opacity-80 transition-all"
-              onClick={() => window.open("https://docs.google.com/document/d/1rtELGnYTfM9dW2kp0tbCfAKMAJw7Cv9-uMH9NKj2x3c/edit?tab=t.0", "_blank")}
-            >
-              AM2 Badge Requirements
-            </button>
+          {/* Scrollable Content */}
+          <div className="w-full max-w-4xl flex flex-col items-center gap-4 sm:gap-6 pb-16">
+            {/* Staff Section */}
+            <div className="w-full">
+              <h2 className="text-xl sm:text-2xl font-primary uppercase mb-3 text-pure-white text-center">
+                Training Staff
+              </h2>
+              <div className="flex flex-col items-center gap-3">
+                <StaffCard 
+                  name="CosmicPanda"
+                  role="Training Specialist"
+                  image={cosmicpanda}
+                  className="w-[220px] sm:w-[240px]"
+                />
+                <div className="flex flex-row gap-2 overflow-x-auto pb-2 w-full sm:justify-center">
+                  {/* Staff cards with reduced size */}
+                  <StaffCard 
+                    name="AdrianCowan"
+                    role="Training Instructor"
+                    image={adriancowan}
+                    className="w-[200px] sm:w-[220px] shrink-0 sm:shrink"
+                  />
+                  <StaffCard 
+                    name="Alabbs"
+                    role="Training Instructor"
+                    image={alabbs}
+                    className="w-[200px] sm:w-[220px] shrink-0 sm:shrink"
+                  />
+                  <StaffCard 
+                    name="Fearothy"
+                    role="Training Instructor"
+                    image={fearothy}
+                    className="w-[200px] sm:w-[220px] shrink-0 sm:shrink"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Quick Links Section */}
+            <div className="w-full px-2">
+              <h2 className="text-xl sm:text-2xl font-primary uppercase mb-3 text-pure-white text-center">
+                Quick Links
+              </h2>
+              <div className="space-y-2">
+                {/* Buttons with reduced padding */}
+                <button 
+                  className="w-full bg-tactical-green p-3 sm:p-4 rounded text-lg sm:text-xl text-pure-white font-primary hover:bg-opacity-80 transition-all"
+                  onClick={() => window.open("https://drive.google.com/file/d/1K2TwPenBsqtq12SMJF8XcLkoUG4K-QEh/view", "_blank")}
+                >
+                  CTC Training Mission Download
+                </button>
+                <button 
+                  className="w-full bg-crimson-red p-3 sm:p-4 rounded text-lg sm:text-xl text-pure-white font-primary hover:bg-opacity-80 transition-all"
+                  onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLSdykee7E-75ldEvuQ4SYBT1H1dG2v4sFCG5j85dDJYcPVDgUA/formResponse", "_blank")}
+                >
+                  CTC Badge Request Form
+                </button>
+                <button 
+                  className="w-full bg-crimson-red p-3 sm:p-4 rounded text-lg sm:text-xl text-pure-white font-primary hover:bg-opacity-80 transition-all"
+                  onClick={() => window.open("https://docs.google.com/document/d/1rtELGnYTfM9dW2kp0tbCfAKMAJw7Cv9-uMH9NKj2x3c/edit?tab=t.0", "_blank")}
+                >
+                  AM2 Badge Requirements
+                </button>
+              </div>
+            </div>
           </div>
 
           <CloseButton onClose={onClose} />
