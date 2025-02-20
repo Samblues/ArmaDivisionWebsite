@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import { SideContentProps, Side } from '@/types';
+import { motion, MotionValue } from 'framer-motion';
+import { Side, ContentType } from '@/types';
 import { RequirementCard } from './UI';
 import { 
   ArmaReforgerLogo, 
@@ -141,19 +141,19 @@ export const SideContent = ({
 
   return (
     <motion.div
-      className={`h-full flex flex-col items-center pt-[20vh] relative ${className}`}
+      className={`h-full flex flex-col items-center pt-[20vh] relative pointer-events-auto ${className}`}
       style={{ width }}
     >
       {/* Background with overlay */}
       <div 
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-center pointer-events-none"
         style={{ backgroundImage: `url(${background})` }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-60" />
       </div>
 
       {/* Content */}
-      <div className={`relative z-10 text-white transition-opacity duration-300 flex flex-col items-center gap-3 sm:gap-4 md:gap-8 w-full px-2 sm:px-4 md:px-8 ${
+      <div className={`relative z-10 text-white transition-opacity duration-300 flex flex-col items-center gap-3 sm:gap-4 md:gap-8 w-full px-2 sm:px-4 md:px-8 pointer-events-auto ${
         isCenterHovered ? 'opacity-50' : 
         hoveredSide === side ? 'opacity-100' : 'opacity-50'
       }`}>

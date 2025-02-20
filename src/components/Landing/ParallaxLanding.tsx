@@ -134,7 +134,7 @@ export const ParallaxLanding = () => {
         ) : (
           <>
             <div className={`h-full flex relative overflow-hidden transition-all duration-700 ${
-              fullscreenContent.type ? 'pointer-events-none opacity-30 scale-[0.95]' : ''
+              fullscreenContent.type ? 'pointer-events-none opacity-30 scale-[0.95]' : 'pointer-events-auto'
             }`}>
               <SideContent 
                 side="left"
@@ -142,10 +142,10 @@ export const ParallaxLanding = () => {
                 hoveredSide={hoveredSide}
                 isCenterHovered={isCenterHovered}
                 onSetFullscreenContent={setFullscreenContent}
-                className="z-10"
+                className="z-10 pointer-events-auto"
               />
               
-              <div className="absolute inset-0 z-20 pointer-events-none">
+              <div className="absolute left-1/2 -translate-x-1/2 h-full z-20 w-fit">
                 <CenterContent 
                   isCenterHovered={isCenterHovered}
                   setIsCenterHovered={setIsCenterHovered}
@@ -159,7 +159,7 @@ export const ParallaxLanding = () => {
                 hoveredSide={hoveredSide}
                 isCenterHovered={isCenterHovered}
                 onSetFullscreenContent={setFullscreenContent}
-                className="z-10"
+                className="z-10 pointer-events-auto"
               />
             </div>
             

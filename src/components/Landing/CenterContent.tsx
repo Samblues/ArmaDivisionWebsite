@@ -9,7 +9,7 @@ export const CenterContent = ({
 }: CenterContentProps) => {
   return (
     <motion.div 
-      className="absolute top-4 sm:top-6 md:top-8 left-1/2 z-30 flex flex-col items-center gap-4 sm:gap-6 min-h-[85vh] justify-between w-full max-w-[90vw] lg:max-w-[70vw]"
+      className="absolute top-4 sm:top-6 md:top-8 left-1/2 z-30 flex flex-col items-center gap-4 sm:gap-6 min-h-[85vh] justify-between w-fit"
       style={{ 
         transform: 'none',
         x: centerOffset,
@@ -24,13 +24,13 @@ export const CenterContent = ({
           alt="The Art of Warfare – ARMA Division"
           className="h-[8vh] sm:h-[10vh] md:h-[12vh] min-h-[60px] max-h-[120px] object-contain filter drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] transition-all duration-300"
         />
-        <h1 className="text-lg sm:text-xl lg:text-2xl font-primary font-bold text-pure-white uppercase tracking-wide text-shadow-glow hover:text-shadow-glow-intense transition-all duration-300 text-center">
+        <h1 className="text-lg sm:text-xl lg:text-2xl font-primary font-bold text-pure-white uppercase tracking-wide text-shadow-glow hover:text-shadow-glow-intense transition-all duration-300 whitespace-nowrap">
           The Art of Warfare – ARMA Division
         </h1>
       </div>
 
       {/* YouTube Video */}
-      <div className="h-[35vh] sm:h-[40vh] md:h-[45vh] lg:h-[60vh] w-[min(280px,70vw)] sm:w-[min(320px,75vw)] md:w-[min(360px,75vw)] lg:w-[min(400px,80vw)] bg-deep-black rounded-lg shadow-2xl overflow-hidden transition-all duration-300 transform hover:scale-110 hover:z-50">
+      <div className="h-[35vh] sm:h-[40vh] md:h-[45vh] lg:h-[60vh] w-[calc(35vh*9/16)] sm:w-[calc(40vh*9/16)] md:w-[calc(45vh*9/16)] lg:w-[calc(60vh*9/16)] bg-deep-black rounded-lg shadow-2xl overflow-hidden transition-all duration-300 transform hover:scale-110 hover:z-50 pointer-events-auto">
         <div className="relative w-full h-full">
           <iframe
             className="absolute inset-0 w-full h-full"
