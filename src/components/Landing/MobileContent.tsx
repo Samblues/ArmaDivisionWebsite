@@ -57,7 +57,7 @@ export const MobileContent = ({ setFullscreenContent }: MobileContentProps) => {
           <div className="w-full aspect-[9/16] bg-deep-black rounded-lg shadow-2xl overflow-hidden mb-6">
             <iframe
               className="w-full h-full"
-              src="https://www.youtube.com/embed/ExqPui_UU-s?si=SVymjQ8dOie7blbP"
+              src="https://www.youtube.com/embed/y7sRYs4sGkU?si=s510k6VULGcTjz36"
               title="TAW ARMA Division"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
