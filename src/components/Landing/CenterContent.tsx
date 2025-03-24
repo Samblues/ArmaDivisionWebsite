@@ -34,7 +34,7 @@ export const CenterContent = ({
         <div className="relative w-full h-full">
           <iframe
             className="absolute inset-0 w-full h-full"
-            src="https://www.youtube.com/embed/ExqPui_UU-s?si=SVymjQ8dOie7blbP"
+            src="https://www.youtube.com/watch?v=y7sRYs4sGkU"
             title="TAW ARMA Division"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
