@@ -58,7 +58,7 @@ export const ModpackContent = ({ side, onClose }: ModpackContentProps) => {
       return {
         head: {
           name: "EvilKim",
-          role: "Head Drill Instructor",
+          role: "Staff Officer",
           image: ReforgerLogo // Using Reforger_V4.png temporarily
         },
         instructors: [
@@ -69,7 +69,7 @@ export const ModpackContent = ({ side, onClose }: ModpackContentProps) => {
           },
           {
             name: "SternbildUK",
-            role: "Drill Instructor",
+            role: "Drill Instructor / PIA",
             image: ReforgerLogo
           }
         ]
@@ -77,9 +77,9 @@ export const ModpackContent = ({ side, onClose }: ModpackContentProps) => {
     }
     return {
       head: {
-        name: "TyrannesRex",
+        name: "Fear",
         role: "Head Drill Instructor",
-        image: tyran
+        image: fearothy
       },
       instructors: [
         {
@@ -88,9 +88,10 @@ export const ModpackContent = ({ side, onClose }: ModpackContentProps) => {
           image: prophet
         },
         {
-          name: "Fearothy",
+          name: "TyrannesRex",
           role: "Drill Instructor",
-          image: fearothy
+          image: tyran
+
         }
       ]
     };
@@ -134,7 +135,7 @@ export const ModpackContent = ({ side, onClose }: ModpackContentProps) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <button 
               className="bg-tactical-green p-4 rounded text-pure-white font-primary hover:bg-opacity-80 transition-all"
-              onClick={() => window.open("https://steamcommunity.com/sharedfiles/filedetails/?id=2293038398", "_blank")}
+              onClick={() => window.open("https://steamcommunity.com/sharedfiles/filedetails/?id=2293037577", "_blank")}
             >
               Battalion Modpack
             </button>
